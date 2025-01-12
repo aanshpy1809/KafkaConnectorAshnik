@@ -83,3 +83,5 @@ java -jar target/kafka-connector-ashnik.jar
 
 ---
 
+After running the java application you will see messages publishing into the kafka consumer service
+
