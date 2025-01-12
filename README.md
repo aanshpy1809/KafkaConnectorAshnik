@@ -39,9 +39,9 @@ Copy code
 mvn exec:java -Dexec.mainClass="com.ashnik.kafkaconnector.MainApp"
 ```
 Running from Eclipse:
-Open the project in Eclipse.
-Right-click the MainApp.java file in the src/main/java/com/ashnik/kafkaconnector directory.
-Select Run As > Java Application.
+1. Open the project in Eclipse.
+2. Right-click the MainApp.java file in the src/main/java/com/ashnik/kafkaconnector directory.
+3. Select Run As > Java Application.
 
 ---
 
