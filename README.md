@@ -30,7 +30,7 @@ Ensure that your Kafka broker is up and running. You can run Kafka locally by fo
 Make sure you have a running Kafka instance and a topic created where messages will be published.
 Update the Kafka server configuration (if necessary) in the MainApp.java file to match your Kafka server and topic configuration.
 
-4. Run the Application
+### 4. Run the Application
 To run the application, execute the MainApp.java class. This can be done directly from Maven or through your IDE.
 
 Running from Maven:
@@ -45,7 +45,7 @@ Select Run As > Java Application.
 
 ---
 
-5. Verify Messages in Kafka Consumer
+### 5. Verify Messages in Kafka Consumer
 Once the application runs, it will publish messages to the Kafka topic.
 
 To verify that the messages are being successfully published:
