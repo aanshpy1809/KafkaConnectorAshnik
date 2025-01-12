@@ -1,16 +1,12 @@
-## Kafka Connector
-
+## Kafka Connector Project
+Follow the steps below to set up and run the application.
 
 ## Prerequisites
-To run this project, ensure you have the following installed:
+Before you begin, ensure that the following are installed on your machine:
 
-1. **Java Development Kit (JDK)** - Version 11 or later
-2. **Apache Kafka** - Version 2.8.0 or later
-3. **Maven** - For building the project
-4. **Git** - For cloning the repository
-5. **Zookeeper** - Required for Kafka cluster management
-
----
+Java (version 8 or higher)
+Maven (for building the project)
+Apache Kafka (Kafka broker running locally or on a remote server)
 
 ## Getting Started
 Follow these steps to set up and run the project:
@@ -21,67 +17,42 @@ Clone this repository to your local machine:
 git clone https://github.com/aanshpy1809/KafkaConnectorAshnik.git
 cd KafkaConnectorAshnik
 ```
-
-### 2. Configure Kafka
-Update the Kafka configuration file (`src/main/resources/application.properties`) with your Kafka server details:
-```properties
-kafka.bootstrap.servers=localhost:9092
-kafka.topic.name=my-topic
-```
-
-### 3. Build the Project
-Build the project using Maven:
+### 2. Install Dependencies
+Clone this repository to your local machine:
 ```bash
 mvn clean install
 ```
+This command will resolve and install all required dependencies defined in the pom.xml file.
 
-### 4. Run the Project
-Run the project using the following command:
+### 3. Configure Kafka
+Ensure that your Kafka broker is up and running. You can run Kafka locally by following the instructions in the Kafka documentation.
+
+Make sure you have a running Kafka instance and a topic created where messages will be published.
+Update the Kafka server configuration (if necessary) in the MainApp.java file to match your Kafka server and topic configuration.
+
+4. Run the Application
+To run the application, execute the MainApp.java class. This can be done directly from Maven or through your IDE.
+
+Running from Maven:
 ```bash
-java -jar target/kafka-connector-ashnik.jar
+Copy code
+mvn exec:java -Dexec.mainClass="com.ashnik.kafkaconnector.MainApp"
 ```
+Running from Eclipse:
+Open the project in Eclipse.
+Right-click the MainApp.java file in the src/main/java/com/ashnik/kafkaconnector directory.
+Select Run As > Java Application.
 
 ---
 
-## How to Run Locally
-1. **Start Zookeeper**
-   Start Zookeeper, which is required by Kafka:
-   ```bash
-   zookeeper-server-start.sh /path/to/zookeeper/config
-   ```
+5. Verify Messages in Kafka Consumer
+Once the application runs, it will publish messages to the Kafka topic.
 
-2. **Start Kafka Server**
-   Launch the Kafka server:
-   ```bash
-   kafka-server-start.sh /path/to/kafka/config
-   ```
+To verify that the messages are being successfully published:
 
-3. **Create Kafka Topics**
-   Create the necessary Kafka topics:
-   ```bash
-   kafka-topics.sh --create --topic my-topic --bootstrap-server localhost:9092
-   ```
-
-4. **Run the Connector**
-   Start the connector application as described above.
-
----
-
-## Testing
-1. **Produce Messages**
-   Send messages to the Kafka topic:
-   ```bash
-   kafka-console-producer.sh --topic my-topic --bootstrap-server localhost:9092
-   > Hello Kafka
-   ```
-
-2. **Consume Messages**
-   Verify the messages are consumed:
-   ```bash
-   kafka-console-consumer.sh --topic my-topic --from-beginning --bootstrap-server localhost:9092
-   ```
-
----
-
-After running the java application you will see messages publishing into the kafka consumer service
-
+Open a Kafka consumer to consume messages from the topic.
+Run the following command to start the Kafka console consumer (replace <topic-name> with your actual Kafka topic):
+```bash
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic <topic-name> --from-beginning
+```
+You should start seeing the messages being published into the Kafka topic in real-time.
